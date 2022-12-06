@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8" />
+	<title>Formulaire de creation de compte</title>
+	<link rel="stylesheet" type="text/css" href="../css/normalize.css">
+	<link rel="stylesheet" type="text/css" href="../css/habillage.css">
+		
+	<link rel="stylesheet" href="..\js\jquery\jquery-ui-1.12.1.custom/jquery-ui.css">
+	<link rel="stylesheet" href="/resources/demos/style.css">
+	<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+	<script src="..\js\jquery\jquery-ui-1.12.1.custom/jquery-ui.js"></script>
+	<script>
+	  $( function() {
+		$( "#datepicker" ).datepicker({
+			 dateFormat: "yy-mm-dd",
+			 minDate: new Date(2016, 1 - 1, 1)
+		});
+	  });
+	</script>
+</head>	
+<body>
+	<div>
+		<div class="logo">
+				<h1>RESTAURANT CONGO BOLINGO</h1>
+				<h2>DE l'ÎLE MBAMOU</h2>
+				<hr>
+				<a href=""><img src ="../images/logo.jpg"/></a>
+				<h3>CREATION D'UN COMPTE CLIENT</h3>
+			</div>
+		<?php if(isset($_GET['msg'])){echo 'MESSAGE: '.lireMessage();} ?>
+		<form action="" method="POST">
+			<fieldset><legend>Identité et coordonnées</legend>
+				<table>
+					<tr>
+						<td><label>Nom </label></td><td><input type="text" name="nom" required /></td>
+					</tr>
+					<tr>
+						<td><label>Prenom </label></td><td><input type="text" name="prenom" /></td>
+					</tr>
+					<tr>
+						<td><label>Date de naissance </label></td><td><input id="datepicker" type="text" name="dateDeNaissance" required /></td>
+					</tr>
+					<tr>
+						<td><label>Adresse </label></td><td><input type="text" name="adresse"/></td>
+					</tr>
+					<tr>
+						<td><label>Ville </label></td><td><input type="text" name="ville"/></td>
+					</tr>
+					<tr>
+						<td><label>Code postal </label></td><td><input type="text" name="codePostal"/></td>
+					</tr>
+					<tr>
+						<td><label>Tél : </label></td><td><input type="text" name="numTel"/></td>
+					</tr>
+				</table>
+			</fieldset>
+			<fieldset><legend>Information d'authentification</legend>
+				<table>
+					<tr>
+						<td><label>Email </label></td><td><input type="text" name="mail" required/></td>
+					</tr>
+					<tr>
+						<td><label>Mot de passe </label></td><td><input type="text" name="motDePasse" required /></td>
+					</tr>
+				</table>
+			</fieldset>
+			<table><tr>
+				<td><input type="submit" value="Valider" name="valider" /></td>
+				<td><div class="bouton">
+					<a href="../index.php">Annuler</a>
+				</div></td>
+			</table></tr>
+		</form>
+	</div>
+</body>
+</html>
+

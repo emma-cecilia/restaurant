@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8" />
+		<title>Payer la commande</title>
+		<link rel="stylesheet" type="text/css" href="../css/normalize.css">
+		<link rel="stylesheet" type="text/css" href="../css/habillage.css">
+			
+	</head>
+<body>
+	<div>
+		<div class="logo">
+			<h1>RESTAURANT CONGO BOLINGO</h1>
+			<h2>DE l'ÎLE MBAMOU</h2>
+			<hr>
+			<div class="connexion">
+				Bonjour<i><b>
+				<?php echo $_SESSION["nom"]; ?>
+				</i></b><br><a href="../index.php?msg=deconnecte" class="sl" >Déconnexion</a>
+			</div>
+			<a href=""><img  src ="../images/logo.jpg"/></a>
+			<h3>Recapitulatif commande</h3>
+		</div>
+			<div>
+			<p> Payer la commande</p>
+					<p><?php echo $leClient->getPrenomClient().' '.$leClient->getNomClient(); ?></<p>
+					<p><?php echo $leClient->getAdresse(); ?></<p>
+					<p><?php echo $leClient->getCodePostal().' '.$leClient->getVille(); ?></<p>
+			</div>
+			<h3>Recapitulatif de la commande</h3>
+			<table class="menu">
+				<tr>
+					<th>Nom</th>
+					<th>Quantité</th>
+					<th>P.U</th>
+					<th>Total</th>
+				</tr>
+				<tr>
+					<?php 
+						$panier=$_SESSION["panier"];
+						$TotalHT=null;
+						foreach ($panier as $index=>$monPanier){
+							$quantite=$monPanier->getQuantite();
+							$monProduit=$monPanier->getProduit();
+							echo '<td>'.$quantite.'</td>';
+							echo '<td>'.$monProduit->getNomProduit().'</td>';
+							echo '<td class="prix">'.$monProduit->getPrixProduit().'</td>';
+							echo '<td class="prix">'.($total=($monProduit->getPrixProduit())*$quantite).'</td><tr>';
+							$TotalHT+=$total;
+						}
+						
+						echo '<td colspan="3">Total HT</td><td class="prix">'.$TotalHT.'</td></tr>';
+						echo '<tr><td colspan="3">TVA (20%)</td><td class="prix">'.TVA($TotalHT).'</td></tr>';
+						$TTC=$TotalHT+(TVA($TotalHT));
+						echo '<tr><td colspan="3">Total TTC</td><td class="prix">'.$TTC.'</td></tr>';
+					?>
+			</table>
+		<div><h5>Commandé le <?php echo $dateCommande.' à '.date("H:i");?></h5></div>
+		<div class="bouton">
+			<a href="../controller/reservationTable.php?msg=commandePayee">D'accord!</a>
+		</div>
+	</div>
+</body>
+</html>

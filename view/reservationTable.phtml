@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8" />
+	<title>RESERVATION D'UNE TABLE</title>
+	<link rel="stylesheet" type="text/css" href="../css/normalize.css">
+	<link rel="stylesheet" type="text/css" href="../css/habillage.css">
+		  
+	<link rel="stylesheet" href="..\js\jquery\jquery-ui-1.12.1.custom/jquery-ui.css">
+	<link rel="stylesheet" href="/resources/demos/style.css">
+	<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+	<script src="..\js\jquery\jquery-ui-1.12.1.custom/jquery-ui.js"></script>
+	<script>
+	  $( function() {
+		$( "#datepicker" ).datepicker({
+			 dateFormat: "yy-mm-dd",
+			 minDate: new Date()
+		});
+	  });
+	</script>
+</head>
+<body>
+<div>
+	<div class="logo">
+		<h1>RESTAURANT CONGO BOLINGO</h1>
+		<h2>DE l'ÎLE MBAMOU</h2>
+		<hr>
+		<div class="connexion">
+			Bonjour<i><b>
+			<?php echo $_SESSION["nom"]; ?>
+			</i></b><br><a href="../index.php?msg=deconnecte" class="sl" >Déconnexion</a>
+		</div>
+		<a href=""><img src ="../images/logo.jpg"/></a>
+		<h3><img src="../images/ccf.jpg" width="50px" />Réservation d'une table</h3>
+	</div>
+	<nav>
+		
+	</nav>
+	<table><tr>
+		<td><input type="hidden" value="Réserver" /></td>
+		<td>
+			<div class="bouton" ><a href="../controller/formulaireDeCommande.php?first=true">Commander</a></div>
+		</td>
+	</table></tr>
+	
+		<form action="" method="POST">
+			<fieldset><legend>Informations</legend>
+				<table>
+					<tr>
+						<td><label>Date </label></td><td colspan="3"><input id="datepicker" name="dateReservation" type="text" required /></td>
+					</tr>
+					<tr>
+						<td><label>Heure </label></td>
+						<td>
+							<select name="heureReservation">
+								<option  value="5">05</option>
+								<option  value="6">06</option>
+								<option  value="7">07</option>
+								<option  value="8">08</option>
+								<option  value="9">09</option>
+								<option  value="10">10</option>
+								<option  value="11">11</option>
+								<option  value="12">12</option>
+								<option  value="13">13</option>
+								<option  value="14">14</option>
+								<option  value="15">15</option>
+								<option  value="16">16</option>
+								<option  value="17">17</option>
+								<option  value="18">18</option>
+								<option  value="19">19</option>
+								<option  value="20">20</option>
+								<option  value="21">21</option>
+								<option  value="22">22</option>
+								<option  value="23">23</option>
+								<option  value="24">24</option>
+								
+							</select>
+						</td>
+						<td><label>Minute</label></td>
+						<td>
+							<select name="minuteReservation">
+								<option  value="0">00</option>
+								<option  value="10">10</option>
+								<option  value="20">20</option>
+								<option  value="30">30</option>
+								<option  value="40">40</option>
+								<option  value="50">50</option>
+							</select>
+						</td>
+					</tr>
+					<tr>
+						<td ><label>Nombre de couverts</label></td>
+						<td colspan="3">	
+							<input type="number" min="1" max="4" name="nombreCouvert" required />
+						</td>
+					</tr>
+					
+				</table>
+					
+				</fieldset>
+					<input type="submit" value="Confirmer" name="confirmer" />
+					<input type="reset" value="Annuler" />
+			</form>
+</div>
+</body>
+</html>

@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8" />
+		<title>Commander</title>
+		<link rel="stylesheet" type="text/css" href="../css/normalize.css">
+		<link rel="stylesheet" type="text/css" href="../css/habillage.css">	
+	</head>
+<body>
+<div>
+	<div class="logo">
+		<h1>RESTAURANT CONGO BOLINGO</h1>
+		<h2>DE l'ÎLE MBAMOU</h2>
+		<hr>
+		<div class="connexion">
+			Bonjour<i><b>
+			<?php echo $_SESSION["nom"]; ?>
+			</i></b><br><a href="../index.php?msg=deconnecte" class="sl" >Déconnexion</a>
+		</div>
+		<a href=""><img  src ="../images/logo.jpg"/></a>
+		<h2>Passer une commande</h2>
+	</div>
+		<form action="../controller/formulaireDeCommande.php" method="POST">
+			<fieldset><legend>Ajouter un article</legend>
+				<table>
+					<tr>
+						<td><label>Nom produit :</label></td>
+						<td>
+							<select name="idProduit">
+								<?php foreach ($tabProduit as $index=>$leProduit){
+									echo '<option value="'.$index.'"><a href="../controller/formulaireDeCommande.php?nomProduit='.$index.'">'.$leProduit.'</a></option>';
+								} ?>
+							</select>
+						</td>
+					</tr>
+					<tr>
+						<td></td>
+						<td>	
+							<table>
+								<tr>
+									<td id="imageProduit"><img src ="<?php //if(isset($_GET['nomProduit'])){echo '../images/meals/'.$tabImageProduit[$_GET['nomProduit']];} ?>"/></td>
+									<td id="descriptionProduit">Description<br>Prix:3€</td>
+								</tr>
+							</table>
+						</td>
+					</tr>
+					<tr>
+						<td>Quantite</td>
+						<td><input type="number" min="1" name="quantite" required/></td>
+					</tr>
+					<tr>
+						<td><input type="submit" name="ajouter" value="Ajouter"/></td>
+					</tr>
+				</table>
+			</form>
+			</fieldset>
+			<fieldset ><legend>Recapitulatif de la commande</legend>
+			<form action="formulaireDeCommande.php" method="POST">
+				<table>
+					<tr>
+						<th>Quantite</th>
+						<th>Produit</th>
+						<th>P.U</th>
+						<th>Total</th>
+						<th>Supprimer</th>
+					</tr>
+				
+						<tr>
+							<?php 
+							$panier=$_SESSION["panier"];
+							foreach ($panier as $index=>$monPanier){
+								$quantite=$monPanier->getQuantite();
+								$monProduit=$monPanier->getProduit();
+								echo '<td>'.$quantite.'</td>';
+								echo '<td>'.$monProduit->getNomProduit().'</td>';
+								echo '<td class="prix">'.$monProduit->getPrixProduit().'</td>';
+								echo '<td class="prix">'.($monProduit->getPrixProduit())*$quantite.'</td>';
+								echo '<td><a href="../controller/formulaireDeCommande.php?idSupp='.$index.'"><img  src ="../images/supprimer.jpg" width="30px"/></a></td><tr>';
+							}?>
+						</tr>
+					</table>
+				
+				<table><tr>
+					<td><input type="submit" name="valider" value="Valider la commande" /></td>
+					<td>
+						<div class="bouton"><a href="../controller/reservationTable.php?msg=commandeAnnuler">Annuler</a></div>
+					</td>
+				</tr></table>
+			</fieldset>
+		</form>
+	</div>
+<script src="../js/commande.js"></script>
+</body>
+</html>
