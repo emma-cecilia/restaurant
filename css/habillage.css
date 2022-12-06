@@ -1,0 +1,82 @@
+body{
+	 background-image: url("../images/meals/radisson-blu-beach.jpg"); 
+}
+body>div{
+	margin-left: auto;
+	margin-right: auto;
+	width: 60%;
+	padding:5%;
+	background-image: url("../images/background.png");
+}
+.logo, .logo>hr{
+	color:blue;
+	text-align:center;
+	margin-left: auto;
+	margin-right: auto;
+}
+.logo h1,.logo h2{
+	padding:0px;
+	margin:0px;
+}
+.logo > a > img,td img{
+	border-radius: 50%;
+	
+}
+.bouton{
+	background:url("../images/button.png");
+	width:128px;
+	height:31px;
+	text-align:center;
+	padding-top:4px;
+}
+.bouton a{
+	color:white;
+	text-decoration: none;
+	text-shadow:1px 2px blue;
+	
+}
+fieldset{
+	margin:1em;
+	margin-left: auto;
+	margin-right: 60%;
+}
+table td,th{
+	padding:5px;
+}
+table th{
+	color: blue;
+	text-decoration: underline;
+}
+.sl{
+	color: red;
+	text-decoration: none;
+}
+legend{
+	 font-weight: bold;
+}
+.menu td{
+	border: 2px solid gray;
+}
+.connexion{
+	text-align:right;
+}
+.connexion i b{
+	color:green;
+}
+.prix{
+	text-align:right;
+	/* width:10em; */
+}
+.prix::after {
+    content: " F";
+}
+.scroll{
+	width: 36%;
+    height: 400px;
+    overflow: scroll;
+	overflow-x: hidden;
+}
+#scroll1{
+	width: 100%;
+    height: 400px;
+}

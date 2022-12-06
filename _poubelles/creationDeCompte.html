@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8" />
+		<title>Formulaire de creation de compte</title>
+		<link rel="stylesheet" type="text/css" href="css/">
+	</head>	
+	<body>
+		<form action="traitement.php" method="POST">
+	     
+		<div class="logo">
+			<img src="restaurant1.jpg" border="2" width="400" /> 
+		</div>
+		 
+		<div><h1>CREATION D'UN COMPTE CLIENT</h1></div>
+			<fieldset><legend>Identité et coordonnées</legend>
+		
+			<div><label>Nom </label>
+				<input type="text" name="nom" size="30" /></div><br />
+			
+			<div><label>Prenom </label>
+				<input type="text" name="prenom" size="30" /></div><br />
+			
+			<div><label>Date de naissance </label>
+				<input type="text" name="Date de naissance " size="30" /></div><br />
+			
+			<div><label>Adresse </label>
+				<input type="text" name="adresse" size="30" /></div><br />
+			
+			<div><label>Ville </label>
+				<input type="text" name="ville" size="30" /></div><br />
+			<div><label>Code postal </label>
+			<input type="text" name="Code postal" size="30" />
+			<label>Tél : </label>
+			<input type="text" name="Tél" size="30" /></div>
+			</fieldset><br />
+			<form>
+				<fieldset>
+					<legend>Information d'authentification</legend>
+					<div><label>Email </label>
+						<input type="text" name="Email" size="30" /></div><br />
+					
+					<div><label>Mot de passe </label>
+						<input type="text" name="Mot de passe" size="30" /></div><br />
+				</fieldset><br />
+			</form>
+				<p id="buttons">
+					<input type="submit" value="Créer le compte" />
+					<input type="reset" value="Annuler" />
+				</p>
+			
+		</form>
+	</body>
+	
+</html>
+

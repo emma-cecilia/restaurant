@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8" />
+		<title>Commander</title>
+		<link rel="stylesheet" type="text/css" href="css/">	
+	</head>
+<body>
+	<h2>Passer une commande</h2>
+		<form>
+			<fieldset><legend>Ajouter un article</legend>
+				<table>
+					<tr>
+						<td><label>Nom produit :</label></td>
+						<td>
+							<select name="nomProduit">
+								<option value="poulet yassa">poulet yassa</option>
+								<option value="coco manioc">coco manioc</option>
+								<option value="poisson fumé aux aubergines">poisson fumé aux aubergines</option>
+								<option value="pizza 4 saisons">pizza 4 saisons</option>
+								<option value="spaghetti bolonaise">spaghetti bolonaise</option>
+								<option value="Bouillant Ngoki fumé">Bouillant Ngoki fumé</option>
+								<option value="Tchiepe djiem">Tchiepe djiem</option>
+							</select>
+						</td>
+					</tr>
+					<tr>
+						<td></td>
+						<td>
+							<table border="1px solid">
+								<tr>
+									<th id="astronomique"><img src ="astronomique.jpg"/></th>
+									<th>Description
+									<br>Prix:3€</th>
+								</tr>
+							</table>
+						</td>
+					</tr>
+					<tr>
+						<td>Quantité</td>
+						<td><input type="number" min="1" name="quantite"/></td>
+					</tr>
+					<tr>
+						<td></td>
+						<td><button>Ajouter</button></td>
+					</tr>
+				</table>
+			</fieldset>
+			<fieldset><legend>Récapitulatif de la commande</legend>
+				<table>
+					<tr>
+						<th>Quantité</th>
+						<th>Produit</th>
+						<th>P.U</th>
+						<th>Total</th>
+					</tr>
+					<tr>
+						<td>2</td>
+						<td>Nom du Produit</td>
+						<td>3€</td>
+						<td>6€</td>
+						<td>poubelle</td>
+					</tr>
+				</table>
+				<input type="submit" name="valider" value="Valider la commande" />
+				<input type="reset" value="Annuler" />
+			</fieldset>
+		</form>
+</body>
+</html>
